@@ -12,7 +12,7 @@
     --bg-2:    #232326;   
     --bone:    #d9d0c1;   
     --ash:     #8a8278;   
-    --blood:   #7d1f1f;   
+    --blood:   #7d1f1f;  
     --silver:  #b4b8bf;   
     --line:    #333338;
     --display: "Times New Roman", Times, serif;
@@ -21,7 +21,7 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  section, header, .gallery { scroll-margin-top: 4.5rem; }
+  section, header, .gallery { scroll-margin-top: 4.5rem; }   /* menu basligin ustunu kapatmasin */
   img { max-width: 100%; }
 
   body {
@@ -33,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* vingette */
   body::after {
     content: "";
     position: fixed; inset: 0;
@@ -42,7 +41,6 @@
     z-index: 5;
   }
 
-  /* nav */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 10;
@@ -63,7 +61,6 @@
   }
   nav ul a:hover, nav ul a:focus-visible { color: var(--bone); }
 
-  /* hero */
   .hero {
     min-height: 100vh;
     min-height: 100svh;   /* telefonda adres cubugu ziplamasin */
@@ -92,7 +89,6 @@
   }
   @keyframes pulse { 50% { opacity: .3; transform: translateY(6px); } }
 
-  /* sections */
   section { padding: 7rem 1.5rem; max-width: 1150px; margin: 0 auto; }
 
   .section-head { text-align: center; margin-bottom: 4rem; }
@@ -105,17 +101,16 @@
     display: block; margin-top: 1rem; color: var(--silver);
   }
 
-  /* gallery */
   .gallery {
     max-width: 900px; margin: 0 auto;
     padding: 4rem 1.5rem 6rem;
     display: flex; flex-direction: column; align-items: center;
-    gap: 7rem;                       /* gap between pieces */
+    gap: 7rem;                       
   }
   .piece {
     width: 100%; margin: 0;
     display: flex; flex-direction: column; align-items: center;
-    gap: .8rem;                      /* gap between images in a piece */
+    gap: .8rem;                      
   }
   .piece img {
     display: block;
@@ -124,7 +119,6 @@
     box-shadow: 0 25px 70px rgba(0,0,0,.75);
   }
 
-  /* 2 images, same height */
   .pair {
     display: flex; gap: .8rem; width: 100%;
     justify-content: center; align-items: flex-start;
@@ -133,7 +127,6 @@
   .pair > * { flex: var(--r) 1 0; min-width: 0; margin: 0; }
   .pair img { width: 100%; max-height: none; }
 
-  /* 3 images, same height */
   .trio {
     display: flex; align-items: flex-end; justify-content: center;
     gap: 1.5rem; width: 100%;
@@ -148,12 +141,15 @@
     font-family: var(--display); font-size: .78rem;
     letter-spacing: .28em; text-transform: uppercase; color: var(--bone);
   }
+  figcaption .desc {
+    display: block; max-width: 52ch; margin: .9rem auto 0;
+    font-size: .9rem; line-height: 1.6; color: var(--ash);
+  }
   figcaption .meta {
     display: block; margin-top: .25rem;
     font-size: .74rem; letter-spacing: .08em; color: var(--ash);
   }
 
-  /* about */
   .about {
     max-width: 640px; margin: 0 auto; text-align: center;
     background: var(--bg-2);
@@ -185,7 +181,6 @@
 
   a:focus-visible { outline: 1px solid var(--silver); outline-offset: 4px; }
 
-  /* fade in */
   .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -200,13 +195,11 @@
     html { scroll-behavior: auto; }
   }
 
-  /* tablet */
   @media (max-width: 1000px) {
     section { padding: 6rem 1.5rem; }
     .about { padding: 2.2rem; }
   }
 
-  /* phone */
   @media (max-width: 760px) {
     body { font-size: 1rem; }
     nav {
@@ -217,7 +210,7 @@
     }
     nav ul { gap: 0; flex-wrap: wrap; justify-content: center; }
     nav ul a {
-      display: block; padding: .6rem .55rem;
+      display: block; padding: .6rem .55rem;   /* parmakla rahat basilsin */
       font-size: .62rem; letter-spacing: .14em;
     }
     .hero { padding: 7rem 1.25rem 4rem; }
@@ -239,7 +232,6 @@
     footer { padding: 2.5rem 1rem calc(2.5rem + env(safe-area-inset-bottom)); letter-spacing: .2em; }
   }
 
-  /* thin phone */
   @media (max-width: 360px) {
     nav ul a { padding: .6rem .35rem; font-size: .58rem; letter-spacing: .08em; }
     section { padding: 3.5rem 1rem; }
@@ -267,7 +259,6 @@
 
 <main>
 
-  <!-- pieces -->
   <div class="gallery" id="work">
     <figure class="piece reveal">
       <div class="trio" style="--total: 1.5446">
@@ -275,15 +266,16 @@
         <div style="--r: 0.3259"><img src="images/1albasti_front.png" alt="Albastı, 3D character model, front view" loading="lazy"></div>
         <div style="--r: 0.3058"><img src="images/1albasti_back.png" alt="Albastı, 3D character model, back view" loading="lazy"></div>
       </div>
-      <figcaption><span class="title">Albastı</span><span class="meta">Blender · 2026</span></figcaption>
+      <figcaption><span class="title">Albastı</span><span class="meta">Blender · 2026</span>
+        <span class="desc">A character from Turkish mythology: Albastı, the spirit said to haunt women after childbirth. I am developing her for a psychological horror game that explores postpartum depression through this folklore figure.</span></figcaption>
     </figure>
     <figure class="piece reveal">
       <img src="images/2minasmorgul.jpg" alt="A dark city beneath icy mountains" loading="lazy">
-      <figcaption><span class="title">Minas Morgul</span><span class="meta">Soft pastel · 2021</span></figcaption>
+      <figcaption><span class="title">Minas Morgul</span><span class="meta">Soft pastel on paper · 35 × 50 cm · 2021</span></figcaption>
     </figure>
     <figure class="piece reveal">
       <img src="images/3horses.jpg" alt="Black horses with red harnesses on a burning orange background" loading="lazy">
-      <figcaption><span class="title">Horses</span><span class="meta">Acrylic · 2024</span></figcaption>
+      <figcaption><span class="title">Horses</span><span class="meta">Acrylic on canvas · approx. 200 × 165 cm · 2024</span></figcaption>
     </figure>
     <figure class="piece reveal">
       <img src="images/4lothlorien.jpg" alt="An elven hall among trees at dusk" loading="lazy">
@@ -291,25 +283,25 @@
     </figure>
     <figure class="piece reveal">
       <img src="images/5mothermaidencrone.jpg" alt="Three winged women in white beneath a full moon" loading="lazy">
-      <figcaption><span class="title">Mother, Maiden, Crone</span><span class="meta">Acrylic · 2022</span></figcaption>
+      <figcaption><span class="title">Mother, Maiden, Crone</span><span class="meta">Acrylic on canvas · approx. 85 × 100 cm · 2022</span></figcaption>
     </figure>
     <figure class="piece reveal">
       <img src="images/6dragon.jpg" alt="A lone warrior facing a dragon, in grey tones" loading="lazy">
-      <figcaption><span class="title">Dragon</span><span class="meta">Soft pastel · 2020</span></figcaption>
+      <figcaption><span class="title">Dragon</span><span class="meta">Soft pastel on paper · 50 × 35 cm · 2020</span></figcaption>
     </figure>
     <div class="pair reveal" style="--total: 1.447">
       <figure style="--r: 0.748">
         <img src="images/7.1view.jpg" alt="A woman in a white dress in a mountain meadow" loading="lazy">
-        <figcaption><span class="title">View</span><span class="meta">Soft pastel · 2021</span></figcaption>
+        <figcaption><span class="title">View</span><span class="meta">Soft pastel on paper · 11 × 15 cm · 2021</span></figcaption>
       </figure>
       <figure style="--r: 0.699">
         <img src="images/7.2surtr.jpg" alt="Surtr, a fire giant carrying a sword, in flame tones" loading="lazy">
-        <figcaption><span class="title">Surtr</span><span class="meta">Soft pastel · 2021</span></figcaption>
+        <figcaption><span class="title">Surtr</span><span class="meta">Soft pastel on paper · 10.5 × 15 cm · 2021</span></figcaption>
       </figure>
     </div>
     <figure class="piece reveal">
       <img src="images/8sabanci.jpg" alt="A lit mansion among dark trees at night" loading="lazy">
-      <figcaption><span class="title">Sabancı</span><span class="meta">Acrylic · 2025</span></figcaption>
+      <figcaption><span class="title">Sabancı</span><span class="meta">Acrylic on canvas · 50 × 35 cm · 2025</span></figcaption>
     </figure>
     <figure class="piece reveal">
       <img src="images/9dragonmask2.jpg" alt="Dragon mask sculpture, three angles" loading="lazy">
@@ -318,7 +310,6 @@
     </figure>
   </div>
 
-  <!-- about -->
   <section id="about">
     <div class="section-head reveal">
       <h2>ABOUT</h2>
@@ -328,6 +319,7 @@
       <div>
         <h3>Fatmanur Bakar</h3>
         <p>Computer Science &amp; Engineering and Visual Arts double major at Sabancı University.</p>
+        <p>I grew up surrounded by mysticism, folklore and old tales, and they still shape everything I make. My work moves between painting, sculpture and 3D, and I want to bring my artistic background together with my technical side to build new worlds through technology: worlds where old stories can be seen, explored and felt in new ways.</p>
         <div class="links">
           <a href="mailto:fatmanur.bakar@sabanciuniv.edu" class="email">fatmanur.bakar@sabanciuniv.edu</a>
         </div>
@@ -340,12 +332,10 @@
 <footer>© 2026 FATMANUR BAKAR — ALL RIGHTS RESERVED</footer>
 
 <script>
-  // start from beginning on page reload, not where the user left off
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   window.addEventListener('load', () => window.scrollTo({ top: 0, behavior: 'instant' }));
 
-  // fade in on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
